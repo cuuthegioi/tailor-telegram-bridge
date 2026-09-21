@@ -12,12 +12,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^6.11.1",
     "axios": "^1.10.0",
-    "openai": "^4.77.0",
     "dotenv": "^17.2.0",
     "express": "^5.1.0",
-    "node-telegram-bot-api": "^0.66.0"
+    "node-telegram-bot-api": "^0.66.0",
+    "openai": "^4.77.0"
   },
   "devDependencies": {
     "@types/dotenv": "^6.1.1",
