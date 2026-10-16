@@ -1,10 +1,16 @@
 import OpenAI from 'openai';
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY!
-});
+let openai: OpenAI | undefined;
 
-export async function handleChatGPTMessage(userId: string, userInput: string) {
+export async function handleChatGPTMessage(
+  userId: string,
+  userInput: string,
+  apiKey: string = process.env.OPENAI_API_KEY!
+) {
+  // Created lazily: on Cloudflare Workers the key comes from the request's
+  // env bindings, which aren't available at module load time.
+  openai ??= new OpenAI({ apiKey });
+
   const systemPrompt = `
   You help non-native English speakers sound clear and natural in short, casual messages—like stand-up updates or Slack. Improve the given text so it reads like spoken language: clear, friendly, and easy to understand.
 

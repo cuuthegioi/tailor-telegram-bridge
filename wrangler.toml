@@ -1,0 +1,12 @@
+name = "tailor-telegram-bridge"
+main = "src/worker.ts"
+compatibility_date = "2026-10-01"
+compatibility_flags = ["nodejs_compat"]
+
+[observability]
+enabled = true
+
+# Secrets (set with `npx wrangler secret put <NAME>`, never commit them):
+#   OPENAI_API_KEY
+#   TELEGRAM_BOT_TOKEN
+#   TELEGRAM_WEBHOOK_SECRET
